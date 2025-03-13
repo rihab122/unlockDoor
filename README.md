@@ -124,3 +124,11 @@ void solvePuzzle1() {
     sendNumberToLock(puzzleCode[puzzleIndex++]);
   }
 }
+
+void solvePuzzle2() {
+  int temperature = analogRead(tempSensor);
+  if (temperature < 500) {
+    delay(2000);
+    sendNumberToLock(puzzleCode[puzzleIndex++]);
+  }
+}
