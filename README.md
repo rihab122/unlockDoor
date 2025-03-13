@@ -91,3 +91,12 @@ const char htmlPage[] PROGMEM = R"rawliteral(
 server.on("/", HTTP_GET, []() {
   server.send_P(200, "text/html", htmlPage);
 });
+
+server.on("/unlock", HTTP_GET, []() {
+  if (server.arg("code") == correctCode) {
+    digitalWrite(lockPin, LOW); // פתיחת הדלת
+    server.send(200, "text/html", "<h1>Door Unlocked!</h1>");
+  } else {
+    server.send(200, "text/html", "<h1>Wrong Code!</h1>");
+  }
+});
