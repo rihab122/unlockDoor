@@ -109,3 +109,11 @@ server.on("/unlock", HTTP_GET, []() {
     server.send(200, "text/html", "<h1>Wrong Code!</h1>");
   }
 });
+
+void sendNumberToLock(char num) {
+  HTTPClient http;
+  String url = String(lockServer) + "?num=" + num;
+  http.begin(client, url);
+  http.GET();
+  http.end();
+}
