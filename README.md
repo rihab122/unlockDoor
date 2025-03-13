@@ -21,6 +21,15 @@ int puzzleIndex = 0;
 String puzzleCode = "1234";                      
 WiFiClient client;
 
+server.on("/update", HTTP_GET, []() {
+  String num = server.arg("num");
+  if (num.length() == 1 && puzzleIndex < 4) {
+    receivedCode[puzzleIndex] = num[0];
+    digitalWrite(segmentPins[puzzleIndex], HIGH);
+    puzzleIndex++;
+  }
+  server.send(200, "text/plain", receivedCode);
+});
 const char htmlPage[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
 <html lang="he">
