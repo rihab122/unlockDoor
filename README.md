@@ -164,3 +164,4 @@ void loop() {
   solvePuzzle3();
   solvePuzzle4();
 }
+.
