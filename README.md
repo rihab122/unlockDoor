@@ -117,3 +117,10 @@ void sendNumberToLock(char num) {
   http.GET();
   http.end();
 }
+void solvePuzzle1() {
+  int brightness = analogRead(lightSensor);
+  if (brightness < 800) {
+    delay(2000);
+    sendNumberToLock(puzzleCode[puzzleIndex++]);
+  }
+}
