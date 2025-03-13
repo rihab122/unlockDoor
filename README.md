@@ -155,3 +155,12 @@ void solvePuzzle4() {
     sendNumberToLock(puzzleCode[puzzleIndex++]);
   }
 }
+
+void loop() {
+  server.handleClient(); // מאזין לבקשות HTTP מהמשתמשים
+  // קריאת הפונקציות לבדיקת חידות:
+  solvePuzzle1();
+  solvePuzzle2();
+  solvePuzzle3();
+  solvePuzzle4();
+}
