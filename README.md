@@ -132,3 +132,18 @@ void solvePuzzle2() {
     sendNumberToLock(puzzleCode[puzzleIndex++]);
   }
 }
+
+void solvePuzzle3() {
+  bool sequenceCorrect = true;
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(ledPins[i], HIGH);
+    delay(500);
+    digitalWrite(ledPins[i], LOW);
+    if (!digitalRead(buttonPins[i])) {
+      sequenceCorrect = false;
+    }
+  }
+  if (sequenceCorrect) {
+    sendNumberToLock(puzzleCode[puzzleIndex++]);
+  }
+}
