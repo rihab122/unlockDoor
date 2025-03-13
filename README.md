@@ -87,3 +87,7 @@ const char htmlPage[] PROGMEM = R"rawliteral(
 </body>
 </html>
 )rawliteral";
+
+server.on("/", HTTP_GET, []() {
+  server.send_P(200, "text/html", htmlPage);
+});
