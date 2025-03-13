@@ -147,3 +147,11 @@ void solvePuzzle3() {
     sendNumberToLock(puzzleCode[puzzleIndex++]);
   }
 }
+
+void solvePuzzle4() {
+  int distance = analogRead(distanceSensor);
+  if (distance > 700) {
+    delay(2000);
+    sendNumberToLock(puzzleCode[puzzleIndex++]);
+  }
+}
